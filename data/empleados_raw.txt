@@ -1,0 +1,4 @@
+ALBERTO garcia  , ALBERTO@GMAIL.COM , 2.500,00€ 
+  marta SANCHEZ  , marta.sanz@HOTMAIL.COM, 3.100,50€ 
+ javier LOPEZ  , Javi_Lo@yahoo.es, 1.850,25€ 
+  lucia MARTINEZ , LUCIA.MTZ@gmail.com , 4.200,00€
