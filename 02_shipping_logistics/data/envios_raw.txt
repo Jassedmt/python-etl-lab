@@ -1,0 +1,5 @@
+101|madrid|5.5kg
+102|barcelona|25.0kg
+103|valencia|12.2kg
+104|bilbao|3.8kg
+105|sevilla|42.1kg

@@ -1,0 +1,75 @@
+import csv
+
+
+def extract_data(file_path):
+    raw_data = []
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        for line in file:
+            shipping_info = line.strip().split('|')
+            raw_data.append(shipping_info)
+
+    return raw_data
+
+route = "02_shipping_logistics/data/envios_raw.txt"
+extracted_data = extract_data(route)
+
+print(f"📦 Datos extraídos correctamente: {len(extracted_data)} registros encontrados.")
+
+def data_transformation(shipping_raw):
+
+    clean_data = []
+
+    for row in shipping_raw:
+        id = "ID-" + row[0]
+        city = row[1].upper()
+        weight = row[2].replace("kg", "").strip()
+        weight = float(weight)
+
+        shipping_cost = weight * 2.5
+        clean_shipping = [id, city, weight, shipping_cost]
+
+        clean_data.append(clean_shipping)
+
+    return clean_data
+
+transformed_data = data_transformation(extracted_data)
+#print(transformed_data)
+
+def weight_filter(transformed_data):
+    new_register = []
+    truck_route = []
+
+    for weight in transformed_data:
+
+        if weight[2] <= 20:
+            new_register.append(weight)
+        else:
+            truck_route.append(weight)
+
+    return new_register, truck_route
+
+critical_filter = weight_filter(transformed_data)
+
+print(f"Paquetes menores a 20Kg: {critical_filter[0]}")
+
+print(f"Paquetes demasiado pesados, estos envíos pertenecen a otra ruta: {critical_filter[1]}")
+
+
+def load_data(clean_data, output_path):
+    header = ["ID", "Ciudad", "Peso(Kg)", "Costo(€)"]
+
+    with open(output_path, 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        writer.writerow(header)
+        writer.writerows(clean_data)
+
+cleaned_data = data_transformation(extracted_data)
+
+new_register, truck_route = weight_filter(cleaned_data)
+
+load_data(new_register, "02_shipping_logistics/output/envios_furgonetas.csv")
+load_data(truck_route, "02_shipping_logistics/output/envios_camiones_pesados.csv")
+
+print("✅ Proceso completado: Archivos de logística generados correctamente.")
