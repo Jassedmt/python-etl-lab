@@ -15,7 +15,7 @@ def extract_data(file_path):
 
 # --- PRUEBA DE EXTRACCIÓN ---
 # Usamos la ruta relativa hacia la carpeta data
-ruta = "data/empleados_raw.txt"
+ruta = "01_Basics_Employees/data/empleados_raw.txt"
 datos_extraidos = extract_data(ruta)
 
 print(f"📦 Datos extraídos correctamente: {len(datos_extraidos)} registros encontrados.")
@@ -61,14 +61,14 @@ def load_data(clean_data, output_path):
 # --- EJECUCIÓN FINAL ---
 
 # 1. Extraemos
-ruta_entrada = "data/empleados_raw.txt"
+ruta_entrada = "01_Basics_Employees/data/empleados_raw.txt"
 datos_sucios = extract_data(ruta_entrada)
 
 # 2. Transformamos (¡Aquí guardamos el resultado en una variable!)
 datos_limpios = transform_data(datos_sucios) 
 
 # 3. Cargamos
-ruta_salida = "output/empleados_final.csv"
+ruta_salida = "01_Basics_Employees/output/empleados_final.csv"
 load_data(datos_limpios, ruta_salida)
 
 print(f"🚀 Proceso completado. Archivo guardado en: {ruta_salida}")

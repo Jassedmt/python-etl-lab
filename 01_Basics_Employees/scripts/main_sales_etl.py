@@ -14,7 +14,7 @@ def extract_data(file_path):
     
     return raw_data
 
-route = "data/ventas_raw.txt"
+route = "01_Basics_employees/data/ventas_raw.txt"
 extracted_data = extract_data(route)
 
 print(f"📦 Datos extraídos correctamente: {len(extracted_data)} registros encontrados.")
@@ -58,12 +58,12 @@ def load_data(clean_data, output_path):
         writer.writerow(header)
         writer.writerows(clean_data)
 
-entry_route = "data/ventas_raw.txt"
+entry_route = "01_Basics_employees/data/ventas_raw.txt"
 unclean_sales = extract_data(entry_route)
 
 cleaned_sales = sanitize_sales(unclean_sales)
 
-output_route = "output/ventas_final.csv"
+output_route = "01_Basics_employees/output/ventas_final.csv"
 load_data(cleaned_sales, output_route)
 
 print(f"🚀 Proceso completado. Archivo guardado en: {output_route}")
