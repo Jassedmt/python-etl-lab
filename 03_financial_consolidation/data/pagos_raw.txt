@@ -1,0 +1,5 @@
+TXN001, Alice Smith ,150.50,USD
+TXN002, Bob Jones ,85.00,GBP
+TXN003,Charlie Brown,200.00,EUR
+TXN004, Diana Prince ,1250.75,USD
+TXN005,Edward Norton,45.20,GBP
