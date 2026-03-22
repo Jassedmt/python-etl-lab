@@ -1,3 +1,5 @@
+import csv
+
 def extract_data(file_path):
     raw_data = []
 
@@ -9,9 +11,7 @@ def extract_data(file_path):
     return raw_data
 
 route = "03_financial_consolidation/data/pagos_raw.txt"
-extract_data = extract_data(route)
-
-print(f"Datos extraídos correctamente: {len(extract_data)}")
+extracted_data = extract_data(route)
 
 
 def data_transformation(finantial_raw):
@@ -23,11 +23,43 @@ def data_transformation(finantial_raw):
         client = row[1].strip().title()
         original_amount = row[2]
         original_amount = float(original_amount)
-        badge = row[3]
+        badge = row[3].upper()
     
         cleaned_data = [id, client, original_amount, badge]
         clean_data.append(cleaned_data)
 
     return clean_data
 
-print(data_transformation(extract_data))
+transformed_data = data_transformation(extracted_data)
+
+def badge_to_eur(transformed_data):
+    badges = []
+
+    for badge in transformed_data:
+        
+        tariff = {"USD": 0.92, "GBP": 1.17, "EUR": 1.0}
+
+        valuation = tariff[badge[3]]
+        converted_amount = round(badge[2] * valuation, 2)
+
+        final_row = [badge[0], badge[1], badge[2], badge[3], converted_amount]
+        
+        badges.append(final_row)
+    return badges
+    
+badge_cleaned = badge_to_eur(transformed_data)
+
+
+def load_data(clean_data, output_path):
+    header = ["ID", "Cliente", "Monto_Original", "Divisa_Original", "Monto_EUR"]
+
+    with open(output_path, 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        writer.writerow(header)
+        writer.writerows(clean_data)
+
+badge_cleaned = badge_to_eur(transformed_data)
+
+output_route = "03_financial_consolidation/output/pagos_consolidados.csv"
+load_data(badge_cleaned, output_route)

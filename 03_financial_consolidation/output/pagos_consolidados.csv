@@ -1,0 +1,6 @@
+ID,Cliente,Monto_Original,Divisa_Original,Monto_EUR
+TXN001,Alice Smith,150.5,USD,138.46
+TXN002,Bob Jones,85.0,GBP,99.45
+TXN003,Charlie Brown,200.0,EUR,200.0
+TXN004,Diana Prince,1250.75,USD,1150.69
+TXN005,Edward Norton,45.2,GBP,52.88
