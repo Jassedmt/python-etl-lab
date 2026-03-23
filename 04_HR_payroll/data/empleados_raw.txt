@@ -1,0 +1,5 @@
+E001;Maria Garcia;IT;35000
+E002;Jose Perez;Ventas;28000
+E003;Ana Lopez;IT;
+E004;Luis Rodriguez;RRHH;ERROR
+E005;Elena Sanz;Marketing;42000
