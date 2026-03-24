@@ -1,3 +1,4 @@
+import csv
 
 def extract_data(file_path):
     raw_data = []
@@ -37,4 +38,17 @@ def data_transformation(extracted_data):
     return clean_data
 
 transformed_data = data_transformation(extracted_data)
-print(transformed_data)
+
+def load_data(clean_data, output_path):
+
+    header = ["ID", "Producto", "Ingreso", "Unidades", "Precio_Unitario"]
+
+    with open(output_path, 'w', newline='', encoding='utf-8') as file:
+        
+        writer = csv.writer(file)
+        writer.writerow(header)
+        writer.writerows(clean_data)
+
+output_path = "05_sales_audit/output/auditoria_precios.csv"
+
+load_data(transformed_data, output_path)
