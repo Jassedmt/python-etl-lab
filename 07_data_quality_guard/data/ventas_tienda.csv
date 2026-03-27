@@ -1,0 +1,7 @@
+ID_Venta,Fecha,Canal,Producto,Cantidad,Precio_Unitario
+1001,12/03/2026,store,Teclado,2,25.50
+1002,13/03/2026,store,Ratón,1,15.00
+1003,14/03/2026,store,Monitor,1,180.00
+1004,15/03/2026,store,Teclado,0,25.50
+1005,16/03/2026,store,Ratón,-1,15.00
+1001,12/03/2026,store,Teclado,2,25.50

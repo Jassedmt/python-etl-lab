@@ -1,0 +1,42 @@
+[
+  {
+    "ID_Venta": "2001",
+    "Fecha": "2026/03/12",
+    "Canal": "web",
+    "Producto": "Laptop",
+    "Cantidad": 1,
+    "Precio_Unitario": 900
+  },
+  {
+    "ID_Venta": "2002",
+    "Fecha": "2026/03/13",
+    "Canal": "web",
+    "Producto": "Tablet",
+    "Cantidad": 2,
+    "Precio_Unitario": 300
+  },
+  {
+    "ID_Venta": "",
+    "Fecha": "2026/03/14",
+    "Canal": "web",
+    "Producto": "Laptop",
+    "Cantidad": 1,
+    "Precio_Unitario": 900
+  },
+  {
+    "ID_Venta": "2003",
+    "Fecha": "2026/03/32",
+    "Canal": "web",
+    "Producto": "Tablet",
+    "Cantidad": 1,
+    "Precio_Unitario": 300
+  },
+  {
+    "ID_Venta": "2001",
+    "Fecha": "2026/03/12",
+    "Canal": "web",
+    "Producto": "Laptop",
+    "Cantidad": 1,
+    "Precio_Unitario": 900
+  }
+]

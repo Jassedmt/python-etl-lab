@@ -1,0 +1,7 @@
+ID_Venta,Fecha,Canal,Producto,Cantidad,Precio_Unitario,Total
+3001,2026/03/12,app,Smartphone,1,600,600
+3002,2026/03/13,app,Auriculares,2,50,100
+3003,2026/03/14,app,Smartphone,1,600,500
+3004,2026/03/15,app,Auriculares,0,50,0
+3005,2026/03/16,app,Smartphone,1,-600,-600
+3001,2026/03/12,app,Smartphone,1,600,600
