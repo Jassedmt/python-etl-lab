@@ -1,0 +1,7 @@
+ID_Envío,Peso(kg),Zona,Costo,Origen_Archivo,Motivo_Error
+ID007,0,Sur,20,warehouse_barcelona,Peso menor o igual a 0 (cero)
+ID008,14,Este,INVALIDO,warehouse_barcelona,el Precio no es un número
+ID002,-5,Sur,50,warehouse_madrid,Peso menor o igual a 0 (cero)
+ID003,10.2,Centro,80,warehouse_madrid,Zona 'Centro' no permitida
+,12,Oeste,90,warehouse_valencia,ID vacío
+ID005,ERROR,Norte,70,warehouse_valencia,Peso no es un número

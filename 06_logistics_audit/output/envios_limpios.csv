@@ -1,0 +1,4 @@
+ID_Envío,Peso(kg),Zona,Costo,Origen_Archivo
+ID006,5.5,Oeste,40,warehouse_barcelona
+ID001,15.5,Norte,100,warehouse_madrid
+ID004,20,Este,150,warehouse_valencia
