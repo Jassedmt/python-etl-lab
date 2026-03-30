@@ -1,6 +1,7 @@
 import os
 import json
 import csv
+from datetime import datetime
 
 def extract_data(file_path, file_type):
     raw_data = []
@@ -39,3 +40,22 @@ for file_name in os.listdir(data_path):
         all_extracted_data.extend(data_from_file)
 
 print(f"Filas totales: {len(all_extracted_data)}")
+
+
+def normalize_dates(date_str):
+    formats = ["%d/%m/%Y", "%Y/%m/%d"]
+
+    for format in formats:
+        try:
+            date_obj = datetime.strptime(date_str, format)
+            return date_obj.strftime("%Y-%m-%d")
+        except:
+            continue
+
+    return None
+
+for row in all_extracted_data:
+
+    row["Fecha"] = normalize_dates(row["Fecha"])
+
+    print(row)
