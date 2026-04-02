@@ -54,11 +54,11 @@ def normalize_dates(date_str):
 
     return None
 
-for row in all_extracted_data:
+# for row in all_extracted_data:
 
-    row["Fecha"] = normalize_dates(row["Fecha"])
+#     row["Fecha"] = normalize_dates(row["Fecha"])
 
-    print(row)
+#     print(row)
 
 
 def normalize_channel(channel):
@@ -76,7 +76,44 @@ def normalize_channel(channel):
 
     return mapping.get(channel, None)
 
+# for row in all_extracted_data:
+
+#     row["Canal"] = normalize_channel(row["Canal"])
+#     print(row)
+    
+
+def normalize_total(row):
+
+    try:
+        amount = int(row["Cantidad"])
+        price = float(row["Precio_Unitario"])
+    except:
+        return None, "Error tipo dato"
+
+    if amount <= 0:
+        return None, "Cantidad Inválida"
+    
+    if price <= 0:
+        return None, "Precio Inválido"
+    
+    total_calculated = amount * price
+
+    if "Total" in row and row["Total"] != "":
+        try:
+            if float(row["Total"]) != total_calculated:
+                return None, "Total inválido"
+        except:
+            return None, "Total no numérico"
+
+    return total_calculated, None
+
 for row in all_extracted_data:
 
-    row["Canal"] = normalize_channel(row["Canal"])
-    print(row)
+    total, error = normalize_total(row)
+
+    if error:
+        print(f"Error en fila: {error}")
+    else:
+        row["Total"] = total
+        print(row)
+
