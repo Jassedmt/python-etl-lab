@@ -59,3 +59,24 @@ for row in all_extracted_data:
     row["Fecha"] = normalize_dates(row["Fecha"])
 
     print(row)
+
+
+def normalize_channel(channel):
+
+    if not channel:
+        return None
+
+    channel = channel.strip().lower()
+
+    mapping = {
+        "store": "Tienda",
+        "web": "Ecommerce",
+        "app": "App"
+    }
+
+    return mapping.get(channel, None)
+
+for row in all_extracted_data:
+
+    row["Canal"] = normalize_channel(row["Canal"])
+    print(row)
